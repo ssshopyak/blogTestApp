@@ -15,6 +15,7 @@ module.exports = {
           '@models': './src/models',
           '@assets': './src/assets',
           '@styles': './src/styles',
+          '@redux': './src/redux',
         },
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
       },
