@@ -41,18 +41,8 @@ export default function Header({
             hitSlop={{top: 15, bottom: 15, left: 15, right: 15}}
             style={styles.arrowContainer}
             onPress={() => {
-              {isLogout ? (
-                <TouchableOpacity
-                  hitSlop={{ top: 15, bottom: 15, left: 15, right: 15 }}
-                  style={styles.arrowContainer}
-                  onPress={() => {
-                    dispatch(logout());
-                  }}>
-                  <Logout style={{ color: Colors.black }} />
-                </TouchableOpacity>
-              ) : null}
-              
-            }}>
+              dispatch(logout());
+          }}>
             <Logout style={{color: Colors.black}} />
           </TouchableOpacity>
         ) : null}

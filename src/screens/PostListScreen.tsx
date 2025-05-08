@@ -1,12 +1,24 @@
 import React, { useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import { useAppDispatch } from '../redux/slices/authSlices';
 import { useSelector } from 'react-redux';
-import { fetchPosts, selectPosts, selectPostsLoading, Post } from '../redux/slices/postsSlices';
+import {
+  fetchPosts,
+  selectPosts,
+  selectPostsLoading,
+  Post,
+} from '../redux/slices/postsSlices';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootStackNavigator';
-import {Header} from '@components';
+import { Header } from '@components';
 
 const PostListScreen = () => {
   const dispatch = useAppDispatch();
@@ -40,6 +52,13 @@ const PostListScreen = () => {
           contentContainerStyle={styles.listContent}
         />
       )}
+
+      {/* Кнопка створення поста */}
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => navigation.navigate('CreatePost')}>
+        <Text style={styles.fabText}>＋</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -66,6 +85,28 @@ const styles = StyleSheet.create({
   preview: {
     fontSize: 14,
     color: '#444',
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 24,
+    right: 24,
+    backgroundColor: '#3478f6',
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+  },
+  fabText: {
+    color: '#fff',
+    fontSize: 28,
+    lineHeight: 32,
+    fontWeight: '600',
   },
 });
 
