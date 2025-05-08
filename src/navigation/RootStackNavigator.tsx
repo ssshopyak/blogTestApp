@@ -3,21 +3,25 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   CreatePostScreen,
   LoginScreen,
-  MainScreen,
+  PostListScreen,
+  PostDetailScreen,
 } from '@screens';
 import { useAuth } from '../redux/slices/authSlices';
 
 export type RootStackParamList = {
   Login: undefined;
-  Main: undefined;
+  PostList: undefined;
   CreatePost: undefined;
+  PostDetail: {
+    postId: string;
+  }
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootStackNavigator = () => {
-  const { isAuthorized } = useAuth();
-  const [initialRoute] = useState<keyof RootStackParamList>(isAuthorized ? 'Main' : 'Login');
+  const {isAuthorized} = useAuth();
+  const [initialRoute] = useState<keyof RootStackParamList>(isAuthorized ? 'PostList' : 'Login');
 
   return (
     <Stack.Navigator
@@ -32,8 +36,9 @@ const RootStackNavigator = () => {
         </>
       ) : (
         <>
-          <Stack.Screen name="Main" component={MainScreen} />
+          <Stack.Screen name="PostList" component={PostListScreen} />
           <Stack.Screen name="CreatePost" component={CreatePostScreen} />
+          <Stack.Screen name="PostDetail" component={PostDetailScreen} />
         </>
       )}
     </Stack.Navigator>
