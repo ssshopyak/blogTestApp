@@ -20,7 +20,7 @@
       // "@assets/*": ["assets/*"],
       // "@constants/*": ["constants/*"],
       // "@components/*": ["components/*"],
-      // "@navigations/*": ["navigations/*"],
+       "@navigations/*": ["navigations/*"],
       // "@screens/*": ["screens/*"],
       // "@styles/*": ["styles/*"],
       // "@models/*": ["models/*"]
