@@ -1,34 +1,24 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: ['@react-native/babel-preset'],
   plugins: [
-    'react-native-reanimated/plugin',
     [
       'module-resolver',
       {
-        root: ['.'],
-        extensions: [
-          '.ios.ts',
-          '.android.ts',
-          '.ts',
-          '.ios.tsx',
-          '.android.tsx',
-          '.tsx',
-          '.jsx',
-          '.js',
-          '.json',
-        ],
+        root: ['./src'],
         alias: {
-          '@utils': './src/utils',
-          '@assets': './src/assets',
-          '@components': './src/components',
           '@constants': './src/constants',
-          '@navigations': './src/navigations',
+          '@components': './src/components',
+          '@utils': './src/utils',
           '@screens': './src/screens',
-          '@styles': './src/styles',
+          '@navigations': './src/navigations',
           '@stores': './src/stores',
           '@models': './src/models',
+          '@assets': './src/assets',
+          '@styles': './src/styles',
         },
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
       },
     ],
+    'react-native-reanimated/plugin', // завжди останній
   ],
 };

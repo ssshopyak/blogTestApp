@@ -2,17 +2,27 @@
   "extends": "@tsconfig/react-native/tsconfig.json",
   "include": ["src/components", "custom.d.ts", "src"],
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@utils": ["./src/utils"],
-      "@stores": ["./src/stores"],
-      "@assets": ["./src/assets"],
-      "@constants": ["./src/constants"],
-      "@components": ["./src/components"],
-      "@navigations": ["./src/navigations"],
-      "@screens": ["./src/screens"],
-      "@styles": ["./src/styles"],
-      "@models": ["./src/models"]
+      "@constants": ["constants"],
+      "@utils": ["utils"],
+      "@stores": ["stores"],
+      "@assets": ["assets"],
+      "@components": ["components"],
+      "@navigations": ["navigations"],
+      "@screens": ["screens"],
+      "@styles": ["styles"],
+      "@models": ["models"],
+
+      // "@utils/*": ["utils/*"],
+      // "@stores/*": ["stores/*"],
+      // "@assets/*": ["assets/*"],
+      // "@constants/*": ["constants/*"],
+      // "@components/*": ["components/*"],
+      // "@navigations/*": ["navigations/*"],
+      // "@screens/*": ["screens/*"],
+      // "@styles/*": ["styles/*"],
+      // "@models/*": ["models/*"]
     }
   }
 }
