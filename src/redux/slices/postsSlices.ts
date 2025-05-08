@@ -22,7 +22,6 @@ const initialState: PostsState = {
   error: null,
 };
 
-// Async actions
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const snapshot = await firestore().collection('posts').get();
   return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Post[];

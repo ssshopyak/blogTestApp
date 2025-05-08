@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   ActivityIndicator,
-  ScrollView,
   TextInput,
   TouchableOpacity,
   FlatList,
@@ -12,35 +11,22 @@ import {
 } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import {Header} from '@components';
-import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParamList } from '../navigation/RootStackNavigator';
-import { useAuth } from '../redux/slices/authSlices';
-import { Colors } from '@constants';
+import {RouteProp, useRoute} from '@react-navigation/native';
+import {RootStackParamList} from '../navigation/RootStackNavigator';
+import {useAuth} from '../redux/slices/authSlices';
+import {Colors} from '@constants';
+import {IPostData,IComment} from '@models';
 
 type PostDetailRouteProp = RouteProp<RootStackParamList, 'PostDetail'>;
 
-interface PostData {
-  title: string;
-  content: string;
-  createdAt: number;
-  authorId: string;
-}
-
-interface Comment {
-  id: string;
-  content: string;
-  authorId: string;
-  createdAt: number;
-}
-
 const PostDetailScreen = () => {
   const route = useRoute<PostDetailRouteProp>();
-  const { postId } = route.params;
-  const { user } = useAuth();
+  const {postId} = route.params;
+  const {user} = useAuth();
 
-  const [post, setPost] = useState<PostData | null>(null);
+  const [post, setPost] = useState<IPostData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [comments, setComments] = useState<Comment[]>([]);
+  const [comments, setComments] = useState<IComment[]>([]);
   const [commentText, setCommentText] = useState('');
   const [adding, setAdding] = useState(false);
 
@@ -49,7 +35,7 @@ const PostDetailScreen = () => {
       try {
         const doc = await firestore().collection('posts').doc(postId).get();
         if (doc.exists) {
-          setPost(doc.data() as PostData);
+          setPost(doc.data() as IPostData);
         }
       } catch (err) {
         console.error('Error fetching post:', err);
@@ -69,7 +55,7 @@ const PostDetailScreen = () => {
       const fetchedComments = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
-      })) as Comment[];
+      })) as IComment[];
 
       setComments(fetchedComments);
     };

@@ -1,10 +1,10 @@
-import React, { FC, useState } from 'react';
-import { StyleSheet, View, KeyboardAvoidingView, Platform, Alert } from 'react-native';
-import { Colors } from '@constants';
-import { Button, Input } from '@components';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/RootStackNavigator';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React, {FC, useState} from 'react';
+import {StyleSheet, View, KeyboardAvoidingView, Platform, Alert } from 'react-native';
+import {Colors} from '@constants';
+import {Button, Input} from '@components';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../navigation/RootStackNavigator';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
 import {setUser} from '../redux/slices/authSlices';
 import {useDispatch} from 'react-redux';
@@ -31,7 +31,6 @@ const LoginScreen: FC<Props> = () => {
       const user = userCredential.user;
       console.log('Успішний логін:', user.email);
       dispatch(setUser({ uid: user.uid, email: user.email }));
-      // Додай логіку зберігання або переходу тут
     } catch (error: any) {
       console.log('Login error:', error.code);
       switch (error.code) {

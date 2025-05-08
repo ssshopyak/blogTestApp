@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput, Alert } from 'react-native';
-import { z } from 'zod';
-import { useAppDispatch, useAuth } from '../redux/slices/authSlices';
-import { addPost } from '../redux/slices/postsSlices';
-import { Button, Header } from '@components';
+import React, {useState} from 'react';
+import {View, StyleSheet, Text, TextInput, Alert} from 'react-native';
+import {z} from 'zod';
+import {useAppDispatch, useAuth} from '../redux/slices/authSlices';
+import {addPost} from '../redux/slices/postsSlices';
+import {Button, Header} from '@components';
 
 const postSchema = z.object({
   title: z.string().min(3, 'Мінімум 3 символи'),
@@ -65,25 +65,26 @@ const CreatePostScreen = () => {
               style={styles.input}
               placeholder="Введіть назву"
               value={title}
-              onChangeText={setTitle} />
+              onChangeText={setTitle}
+          />
           {errors.title && <Text style={styles.error}>{errors.title}</Text>}
-
           <Text style={styles.label}>Контент</Text>
           <TextInput
-              style={[styles.input, styles.textarea]}
-              placeholder="Введіть текст поста"
-              value={content}
-              multiline
-              numberOfLines={6}
-              onChangeText={setContent} />
+            style={[styles.input, styles.textarea]}
+            placeholder="Введіть текст поста"
+            value={content}
+            multiline
+            numberOfLines={6}
+            onChangeText={setContent}
+          />
           {errors.content && <Text style={styles.error}>{errors.content}</Text>}
-
           <Button
-              isBig={false}
-              title="Створити пост"
-              onPress={onSubmit}
-              backgroundColor="#3478f6"
-              color="#fff" />
+            isBig={false}
+            title="Створити пост"
+            onPress={onSubmit}
+            backgroundColor="#3478f6"
+            color="#fff"
+          />
         </View>
     </>
   );

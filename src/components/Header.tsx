@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/RootStackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import { useAppDispatch, logout } from '../redux/slices/authSlices';
+import {useAppDispatch, logout} from '../redux/slices/authSlices';
 
 export default function Header({
   title,

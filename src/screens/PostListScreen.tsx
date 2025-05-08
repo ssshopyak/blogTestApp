@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -7,18 +7,18 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import { useAppDispatch } from '../redux/slices/authSlices';
-import { useSelector } from 'react-redux';
+import {useAppDispatch} from '../redux/slices/authSlices';
+import {useSelector} from 'react-redux';
 import {
   fetchPosts,
   selectPosts,
   selectPostsLoading,
   Post,
 } from '../redux/slices/postsSlices';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/RootStackNavigator';
-import { Header } from '@components';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../navigation/RootStackNavigator';
+import {Header} from '@components';
 
 const PostListScreen = () => {
   const dispatch = useAppDispatch();

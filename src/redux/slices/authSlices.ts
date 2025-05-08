@@ -1,4 +1,3 @@
-// src/redux/slices/authSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface User {
@@ -34,7 +33,6 @@ const authSlice = createSlice({
 export const { setUser, logout } = authSlice.actions;
 export default authSlice.reducer;
 
-// Hooks for usage in components
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '../store/store';
 
